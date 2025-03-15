@@ -1,0 +1,15 @@
+version: '3.8'
+services:
+  shadowsocks-server-configer:
+    image: ghcr.io/xclhove/shadowsocks-server-configer:latest
+    container_name: shadowsocks-server-configer
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /home/xclhove/shadosocks-server-config/example/config.json:/app/config/config.json
+    ports:
+      - "3000:3000"
+    environment:
+      - CONTAINER_NAME=shadowsocks-server-configer
+      - CONFIG_PATH=/app/config/config.json
+      - ADMIN_USER=admin
+      - PASSWORD=123456
